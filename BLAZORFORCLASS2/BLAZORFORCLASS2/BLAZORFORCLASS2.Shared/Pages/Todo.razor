@@ -1,0 +1,29 @@
+@page "/todo"
+@using BLAZORFORCLASS2.Shared.Data
+
+<h3>Todo</h3>
+<ul> 
+    @foreach(var todo in todos)
+    {
+        <li>@todo.Title</li>
+    }
+</ul>
+<input placeholder="something todo" @bind="newTodo"/>
+<button @onclick="AddTodo"> Add Todo</button>
+@code
+{
+    List<TodoItem> todos = new List<TodoItem>();
+    string newTodo = string.Empty;  // initialize to empty string
+
+    void AddTodo()
+    {
+                // do this 
+        if(string.IsNullOrWhiteSpace(newTodo))
+        return;
+          
+            todos.Add( new TodoItem { Title = newTodo});
+        
+        newTodo = string.Empty;
+
+    }        
+}
