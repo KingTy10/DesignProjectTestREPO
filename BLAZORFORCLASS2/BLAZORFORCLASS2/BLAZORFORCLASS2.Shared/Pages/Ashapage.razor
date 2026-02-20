@@ -1,0 +1,19 @@
+@page "/ashapage"
+@using BLAZORFORCLASS2.Shared.Data
+
+<PageTitle>ashapage</PageTitle>
+
+<h1>ashapage :)</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
