@@ -1,0 +1,29 @@
+@page "/Luispage"
+
+<PageTitle>Luispage</PageTitle>
+
+<h1>Erm what the deuce this is lowkey Luis's page</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<p role="status">Why you lowkey High five me this many times: @highFiveCounter </p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+<button class="btn btn-primary" @onclick="HighFiveCount">High Five Me please</button>
+
+
+@code {
+    private int currentCount = 0;
+
+    private int highFiveCounter = 0;
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+    private void HighFiveCount()
+    {
+        highFiveCounter++;
+    }
+
+}
