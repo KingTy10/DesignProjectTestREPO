@@ -1,0 +1,32 @@
+@page "/todo"
+@using MauiApp1.Shared.Services
+<h3>Todo List(@items.Count(item => !item.IsDone))</h3>
+
+<ul>
+@foreach (var item in items)
+{
+    <li><input type="checkbox" @bind="item.IsDone"/> 
+    <input @bind="item.Title"/></li>
+    
+}
+
+</ul>
+
+<input placeholder="Something Todo" @bind="newItemTitle"/>
+<button @onclick="AddItem">Add Item</button>
+
+
+@code {
+   List<TodoItem> items = new List<TodoItem>();
+    string newItemTitle;
+    void AddItem()
+    {
+       if (string.IsNullOrWhiteSpace(newItemTitle))
+       return;
+
+        items.Add(new TodoItem 
+        { Title = newItemTitle });
+        newItemTitle = string.Empty;
+     
+    }
+}
